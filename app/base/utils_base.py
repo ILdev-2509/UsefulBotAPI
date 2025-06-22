@@ -2,10 +2,5 @@ from abc import ABC, abstractmethod
 
 class BaseDecoder(ABC):
     @abstractmethod
-    def decode(self):
-        pass
-
-class BaseEncoder(ABC):
-    @abstractmethod
-    def encode(self):
+    def decode(self, filename: str) -> dict | None:
         pass
