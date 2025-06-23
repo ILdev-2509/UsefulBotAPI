@@ -30,3 +30,31 @@ class ToRomanConverter(BaseConverter):
             result.append(roman * count)
 
         return ''.join(result)
+
+class FromRomanConverter(BaseConverter):
+    def convert(self, number: int | str) -> int:
+        """
+        Конвертирует римские цифры в арабские
+        Args:
+            number (int | str): исходное число
+        Returns:
+            int: сконвертированное число
+        Raises:
+            ValueError: если обнаружен недопустимый символ
+        """
+        roman = str(number).strip().upper()
+        result = 0
+        i = 0
+        length = len(roman)
+
+        while i < length:
+            if i + 1 < length and roman[i:i + 2] in ROMAN_MAPPING:
+                result += ROMAN_MAPPING[roman[i:i + 2]]
+                i += 2
+            elif roman[i] in ROMAN_MAPPING:
+                result += ROMAN_MAPPING[roman[i]]
+                i += 1
+            else:
+                raise ValueError(f"Недопустимый символ в римском числе: '{roman[i]}'")
+
+        return result
