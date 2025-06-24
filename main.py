@@ -10,16 +10,15 @@ from app.api.converter.bases.bases_converter_page import router as bases_router
 from app.api.password_manager.checker.check_password_page import router as password_checker_router
 from app.api.password_manager.generator.generate_password_page import router as password_generator_router
 
-def main() -> None:
-    app = FastAPI(title=config.app_name)
-    app.include_router(keyboard_router)
-    app.include_router(from_morse_router)
-    app.include_router(to_morse_router)
-    app.include_router(roman_router)
-    app.include_router(bases_router)
-    app.include_router(password_checker_router)
-    app.include_router(password_generator_router)
-    uvicorn.run(app)
+app = FastAPI(title=config.app_name)
+app.include_router(keyboard_router)
+app.include_router(from_morse_router)
+app.include_router(to_morse_router)
+app.include_router(roman_router)
+app.include_router(bases_router)
+app.include_router(password_checker_router)
+app.include_router(password_generator_router)
+
 
 if __name__ == "__main__":
-    main()
+    uvicorn.run(app)
