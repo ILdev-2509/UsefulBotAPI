@@ -30,4 +30,4 @@
 - `/converter/roman/to_roman-{number}`
 - `/converter/roman/from_roman-{number}`
 
-### - API пока нигде не развернута, все еще ищу бесплатные хостинги.
+### - API запущена тут: https://apiforusefulbot-hlskqnpl.b4a.run/
